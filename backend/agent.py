@@ -9,7 +9,7 @@ client = Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 def get_agent_response(text):
     agent_response = []
     message = client.messages.create(
-        max_tokens=1024,
+        max_tokens=2048,
         messages=[
             {
                 "role": "user",
