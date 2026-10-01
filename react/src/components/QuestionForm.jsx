@@ -5,15 +5,15 @@ const api = axios.create({baseURL: 'http://localhost:8000/api/request'});
 
 
 // Handle line breaks (\n) and spacing ([x] x > 1)
+const result = [];
 const formatResponse = (text) => {
-    const result = [];
+
 
     for (let i = 0; i < text.length; i++) {
         let check_break = text.slice(i, i + 7);
         let check_spacing = text.slice(i, i + 3);
         let number = text.charAt(i + 1);
         let isNumber = false;
-
 
         if (number > '0' && number < '9') {
             isNumber = true;
@@ -36,6 +36,7 @@ const formatResponse = (text) => {
         }
     }
 
+    result.push(<div>-----------------------------------------</div>)
     return result;
 }
 
@@ -53,6 +54,7 @@ const QuestionForm = () => {
 
     const postData = (event) => {
         textRef.current.value = "";
+        set_agent_response([<p>Processing...</p>]);
         event.preventDefault();
         api.post('/', {post}.post)
             .then(() => api.get(`?body=${{post}.post.body}`))
