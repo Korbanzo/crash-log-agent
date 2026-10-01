@@ -2,11 +2,11 @@ import os
 from dotenv import load_dotenv
 from anthropic import Anthropic
 
+load_dotenv()
+prompt_instructions = open("prompt_instructions.txt").read()
+client = Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
+
 def get_agent_response(text):
-    load_dotenv()
-
-    client = Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
-
     agent_response = []
     message = client.messages.create(
         max_tokens=1024,
@@ -17,6 +17,7 @@ def get_agent_response(text):
             }
         ],
         model="claude-opus-5-5",
+        system=prompt_instructions
     )
 
     for block in message.content:

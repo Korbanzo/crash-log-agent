@@ -3,6 +3,10 @@ import axios from 'axios'
 
 const api = axios.create({baseURL: 'http://localhost:8000/api/request'});
 
+const formatResponse = () => {
+
+}
+
 const QuestionForm = () => {
     const textRef = useRef(null);
 
@@ -27,7 +31,7 @@ const QuestionForm = () => {
 
     return (
         <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
-            <p>{agent_response}</p>
+            <p style={{width: '40vw', whiteSpace: 'pre-wrap'}}>{agent_response}</p>
             <form onSubmit={postData} style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: '100vh'}}>
                 <input ref={textRef} onChange={handleInput} name="user_request" type="text" placeholder={"How can I help?"} style={{width: '40vw'}}/>
                 <input type="submit" value={"Submit"}/>

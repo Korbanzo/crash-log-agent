@@ -5,3 +5,9 @@ body {
 input {
   border-style: none;
 }
+
+textarea {
+  height: fit-content;
+  width: 40vw;
+  resize: none;
+}
