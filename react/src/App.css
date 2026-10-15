@@ -1,0 +1,9 @@
+.agent-response-wrapper {
+    height: 50vh;
+    overflow: scroll;
+    width: 55vw;
+    background-color: gray;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5vh;
+}

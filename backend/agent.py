@@ -4,16 +4,17 @@ from anthropic import Anthropic
 
 load_dotenv()
 prompt_instructions = open("prompt_instructions.txt").read()
+
 client = Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
 
-def get_agent_response(text):
+def get_agent_response(text, log):
     agent_response = []
     message = client.messages.create(
         max_tokens=2048,
         messages=[
             {
                 "role": "user",
-                "content": text,
+                "content": text + "CRASH LOG: \n" + log
             }
         ],
         model="claude-opus-5-5",

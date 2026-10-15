@@ -18,9 +18,8 @@ def post_request():
     print("Post Request Successful.")
 
 @app.get("/api/request/")
-def get_request(body):
-    agent_response = get_agent_response(body)
-    print("Agent Response: " + agent_response)
+def get_request(body, log):
+    agent_response = get_agent_response(body, log)
     return agent_response
 
 if __name__ == '__main__':
