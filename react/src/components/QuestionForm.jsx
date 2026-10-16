@@ -83,7 +83,7 @@ const QuestionForm = () => {
             <div className={"agent-response-wrapper"}>
                 {agent_response}
             </div>
-            <SurenessCircle number={sureness}/>
+
             <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', height: '20vh'}}>
 
                 <form onSubmit={postData} method={"post"} encType={"multipart/form-data"}>
@@ -91,9 +91,8 @@ const QuestionForm = () => {
                     <input ref={textRef} onChange={handleInput} name="user_request" type="text" placeholder={"How can I help?"} style={{width: '40vw'}}/>
                     <input type="submit" value={"Submit"}/>
                 </form>
-                <div>
 
-                </div>
+                <SurenessCircle number={sureness}/>
             </div>
 
         </div>

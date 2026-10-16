@@ -7,3 +7,26 @@
     padding: 10px;
     margin-top: 5vh;
 }
+
+.sureness-circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid turquoise;
+    border-radius: 5000px;
+    --angle: 0deg;
+    background: conic-gradient(from var(--angle), red, yellow, lime, aqua, blue, magenta, red);
+    animation: rotateAngle 10s linear infinite;
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes rotateAngle {
+    to {
+        --angle: 360deg;
+    }
+}
